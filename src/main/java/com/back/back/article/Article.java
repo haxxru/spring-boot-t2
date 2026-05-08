@@ -32,4 +32,9 @@ public class Article {
 		this.content = content;
 		this.createDate = LocalDateTime.now();
 	}
+
+	public void modify(String title, String content) {
+		this.title = title;
+		this.content = content;
+	}
 }

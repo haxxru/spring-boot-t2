@@ -40,4 +40,20 @@ public class ArticleController {
 		model.addAttribute("article", articleService.findById(id));
 		return "article/detail";
 	}
+
+	@GetMapping("/article/modify/{id}")
+	public String modifyForm(@PathVariable Long id, Model model) {
+		model.addAttribute("article", articleService.findById(id));
+		return "article/modify";
+	}
+
+	@PostMapping("/article/modify/{id}")
+	public String modify(
+			@PathVariable Long id,
+			@RequestParam String title,
+			@RequestParam String content
+	) {
+		articleService.modify(id, title, content);
+		return "redirect:/article/detail/" + id;
+	}
 }

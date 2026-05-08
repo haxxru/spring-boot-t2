@@ -26,4 +26,10 @@ public class ArticleService {
 	public Article create(String title, String content) {
 		return articleRepository.save(new Article(title, content));
 	}
+
+	@Transactional
+	public void modify(Long id, String title, String content) {
+		Article article = findById(id);
+		article.modify(title, content);
+	}
 }
