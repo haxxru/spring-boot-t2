@@ -56,4 +56,10 @@ public class ArticleController {
 		articleService.modify(id, title, content);
 		return "redirect:/article/detail/" + id;
 	}
+
+	@PostMapping("/article/delete/{id}")
+	public String delete(@PathVariable Long id) {
+		articleService.delete(id);
+		return "redirect:/article/list";
+	}
 }

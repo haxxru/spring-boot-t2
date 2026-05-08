@@ -8,8 +8,15 @@
 <main>
 	<fieldset>
 		<h1>게시글 상세</h1>
-		<a href="/article/list">목록</a>
-		<a th:href="@{/article/modify/{id}(id=${article.id})}">수정</a>
+		<form method="get" action="/article/list" style="display:inline;">
+			<button type="submit">목록</button>
+		</form>
+		<form method="get" th:action="@{/article/modify/{id}(id=${article.id})}" style="display:inline;">
+			<button type="submit">수정</button>
+		</form>
+		<form method="post" th:action="@{/article/delete/{id}(id=${article.id})}" style="display:inline;">
+			<button type="submit">삭제</button>
+		</form>
 	</fieldset>
 
 	<fieldset>

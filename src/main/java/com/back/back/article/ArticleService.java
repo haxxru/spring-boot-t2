@@ -32,4 +32,10 @@ public class ArticleService {
 		Article article = findById(id);
 		article.modify(title, content);
 	}
+
+	@Transactional
+	public void delete(Long id) {
+		Article article = findById(id);
+		articleRepository.delete(article);
+	}
 }
