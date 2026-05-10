@@ -1,0 +1,16 @@
+<nav th:fragment="navbarFragment">
+	<form method="get" action="/" style="display:inline;">
+		<button type="submit">Spring Board</button>
+	</form>
+
+	<span th:if="${session.loginUserId == null}">
+		<form method="get" action="/login" style="display:inline;">
+			<button type="submit">로그인</button>
+		</form>
+	</span>
+	<span th:if="${session.loginUserId != null}">
+		<form method="get" action="/logout" style="display:inline;">
+			<button type="submit">로그아웃</button>
+		</form>
+	</span>
+</nav>
