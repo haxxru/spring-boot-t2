@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>회원가입</title>
+</head>
+<body>
+<nav th:replace="~{fragments/navbar :: navbarFragment}"></nav>
+<main>
+	<h1>회원가입</h1>
+
+	<p th:if="${errorMessage != null}" th:text="${errorMessage}"></p>
+
+	<form method="post" action="/join">
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+		<p>
+			<label for="userId">유저ID</label>
+		</p>
+		<p>
+			<input type="text" id="userId" name="userId" th:value="${userId}" required>
+		</p>
+
+		<p>
+			<label for="nickname">닉네임</label>
+		</p>
+		<p>
+			<input type="text" id="nickname" name="nickname" th:value="${nickname}" required>
+		</p>
+
+		<p>
+			<label for="password">비밀번호</label>
+		</p>
+		<p>
+			<input type="password" id="password" name="password" required>
+		</p>
+
+		<p>
+			<label for="passwordConfirm">비밀번호 확인</label>
+		</p>
+		<p>
+			<input type="password" id="passwordConfirm" name="passwordConfirm" required>
+		</p>
+
+		<p>
+			<button type="submit">회원가입</button>
+		</p>
+	</form>
+</main>
+</body>
+</html>
